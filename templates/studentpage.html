@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Student{% endblock title %}
+
+{% block studentactive %}active{% endblock studentactive %}
+
+{% block body %}
+
+<div class="container">
+
+
+    <br>
+    <br><br>
+  
+    <h1 class="text-center my-5"><u><i>Books List</i></u></h1>
+  
+  
+    {% if allbook|length == 0 %}
+    <div class="alert alert-info text-center my-5" role="alert">
+      No Books in the list.
+    </div> 
+  
+    {% else %}
+  
+    <table class="table table-bordered border-primary border border-4 text-center">
+      <thead class="border border-4 border-primary">
+        <tr>
+          <th class="col-1" scope="col">Sr. No</th>
+          <th class="col-4" scope="col">Book Name</th>
+          <th class="col-3" scope="col">Book's Author</th>
+          <th class="col-2" scope="col">ISBN</th>
+          <th class="col-1" scope="col">Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+  
+        {% for book in allbook %}
+        <tr>
+          <th scope="row">{{forloop.counter}}.</th>
+          <td>{{book.book_name | title}}</td>
+          <td>{{book.author | title}}</td>
+          <td>{{book.isbn}}</td>
+          <td>{{book.quantity}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+  </div>
+  
+
+
+
+{% endblock body %}

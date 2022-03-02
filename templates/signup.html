@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% load filters %}
+
+{% block body %}
+
+
+<div class="container my-5">
+<h1 class="my-5">Administration Sign-up</h1>
+
+
+<form action="/signup" method="post"> {% csrf_token %}
+    {% comment %} {{form.as_p}}
+     {% endcomment %}
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      {{form.email.errors}}
+      {{form.email|addclass:"form-control"|addplaceholder:"Enter Email Address"}}
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Choose a Password</label>
+      {{form.password1.errors}}
+      {{form.password1|addclass:"form-control"|addplaceholder:"Enter password"}}
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Confirm Password</label>
+      {{form.password2.errors}}
+      {{form.password2|addclass:"form-control"|addplaceholder:"Confirm password"}}
+    </div>
+  <button type="submit" class="btn btn-outline btn-primary">Submit</button>
+</form>
+<p class="text-center my-5">Already have an account?  <a href="/login">Login</a></p>
+
+</div>
+
+
+{% endblock body %}

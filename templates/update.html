@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Student{% endblock title %}
+
+
+{% block body %}
+
+<div class="container pt-2 my-5">
+  <div>
+    <h1 class="text-center mt-5" style="color: black;"><u><i>Update Book Details</i></u></h1>
+    <form action="/update/{{book.sno}}" method="post"> {% csrf_token %}
+      <div class="mb-3 my-2">
+        <label for="title" class="form-label">Book Name</label>
+        <input type="text" class="form-control border border-5" value="{{book.book_name}}" name="bookname" id="title" placeholder="Enter Book Name here." required>
+      </div>
+      <div class="mb-3 my-2">
+        <label for="title" class="form-label">Author Name</label>
+        <input type="text" class="form-control border border-5" value="{{book.author}} " name="author" id="title" placeholder="Enter Author Name here." required>
+      </div>
+      <div class="mb-3 my-2">
+        <label for="title" class="form-label">ISBN</label>
+        <input type="text" class="form-control border border-5" value="{{book.isbn}} " name="isbn" id="title" placeholder="Enter ISBN here." required>
+      </div>
+      <div class="mb-3 my-2">
+        <label for="title" class="form-label">Quantity</label>
+        <input type="text" class="form-control border border-5" value="{{book.quantity}} " name="quantity" id="title" placeholder="Enter quantity here." required>
+      </div>
+      <button type="submit" class="btn btn-primary">Update Book</button>
+    </form>
+    <br>
+    <br>
+  </div>
+</div>
+
+
+
+
+{% endblock body %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block homeactive %}active{% endblock homeactive %}
+
+
+{% block body %}
+
+
+<div class="container">
+
+
+{% if user.is_authenticated %}
+<div class="my-5 mx-5">  
+    <h1><a href="/logout">Administration Logout</a></h1>
+   </div>
+
+
+{% else %}
+   <div class="my-5 mx-5">  
+    <h1><a href="/login">Administration Login</a></h1>
+   </div>
+   
+   <div class="my-5 mx-5">  
+    <h1><a href="/signup">Administration Sign-up</a></h1>
+   </div>
+
+{% endif %}
+
+
+<div class="my-5 mx-5">  
+<h1><a href="/studentpage" class="my-5 mx-5">Student</a></h1>
+</div>
+
+
+</div>
+
+
+{% endblock body %}
